@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHead from '../components/SectionHead.astro';
+import { type Lang, t } from '../i18n';
+import { getPage, pick, md } from '../lib/content';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang);
+const data = await getPage('niri-buruz');
+const hero = await getPage('hasiera');
+const loc = pick<any>(data, lang);
+const html = md(loc.testua);
+const photo = data.argazkia || hero.argazkia;
+---
+<Base lang={lang} path="/niri-buruz" title={s.niriBuruz} description={loc.sarrera} current="niri-buruz">
+  <section class="wrap page-head">
+    <SectionHead title={s.niriBuruz} as="h1" />
+    <div class="about">
+      <div class="about__body">
+        <p class="page-title" style="font-size: clamp(32px, 3.6vw, 52px); line-height: 1.15; margin: 0">{loc.sarrera}</p>
+        {html && <div class="prose" style="margin-top: 48px" set:html={html} />}
+      </div>
+      {photo && (
+        <div class="about__photo">
+          <img src={photo} alt={s.portrait} />
+          {hero.argazkiaren_egilea && <p class="hero__credit">{s.photo}: {hero.argazkiaren_egilea}</p>}
+        </div>
+      )}
+    </div>
+  </section>
+</Base>

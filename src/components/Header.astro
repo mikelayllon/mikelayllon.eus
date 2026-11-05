@@ -1,0 +1,37 @@
+---
+import { LANGS, type Lang, t, url } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  links: Record<Lang, string>;
+  current?: string;
+}
+const { lang, links, current } = Astro.props;
+const s = t(lang);
+const items = [
+  { id: 'koadernoa', label: s.koadernoa, href: '/koadernoa' },
+  { id: 'zerbitzuak', label: s.zerbitzuak, href: url(lang, '/') + '#zerbitzuak' },
+  { id: 'lanak', label: s.lanak, href: url(lang, '/lanak') },
+  { id: 'ikerketa', label: s.ikerketa, href: url(lang, '/ikerketa') },
+  { id: 'niri-buruz', label: s.niriBuruz, href: url(lang, '/niri-buruz') },
+  { id: 'kontaktua', label: s.kontaktua, href: '#harremana' },
+];
+---
+<a class="skip-link" href="#edukia">{s.skip}</a>
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="site-header__name" href={url(lang, '/')}>Mikel Ayllon</a>
+    <nav class="site-nav" aria-label={s.nav}>
+      {items.map((i) => (
+        <a href={i.href} aria-current={current === i.id ? 'page' : undefined}>{i.label}</a>
+      ))}
+    </nav>
+    <div class="lang-switch" role="group" aria-label={s.langSwitch}>
+      {LANGS.map((l) => (
+        <a href={links[l]} hreflang={l} lang={l} aria-current={l === lang ? 'true' : undefined} title={t(l).langName}>
+          {l.toUpperCase()}
+        </a>
+      ))}
+    </div>
+  </div>
+</header>

@@ -1,0 +1,10 @@
+---
+import Work from '../../../views/Work.astro';
+import { getWorks } from '../../../lib/content';
+export async function getStaticPaths() {
+  const works = await getWorks();
+  return ['es', 'en'].flatMap((lang) => works.map((w) => ({ params: { lang, slug: w.id } })));
+}
+const { lang, slug } = Astro.params as { lang: 'es' | 'en'; slug: string };
+---
+<Work lang={lang} id={slug} />

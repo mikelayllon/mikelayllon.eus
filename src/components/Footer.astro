@@ -1,0 +1,54 @@
+---
+import { type Lang, t, url } from '../i18n';
+import { getPage } from '../lib/content';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang);
+const cfg = await getPage('ezarpenak');
+const mail = cfg.posta || 'info@mikelayllon.eus';
+const networks = [
+  { label: 'Instagram', href: cfg.instagram },
+  { label: 'Academia', href: cfg.academia },
+  { label: 'LinkedIn', href: cfg.linkedin },
+  { label: 'ORCID', href: cfg.orcid },
+  { label: 'Google Scholar', href: cfg.scholar },
+].filter((n) => n.href);
+const year = new Date().getFullYear();
+---
+<footer id="harremana" class="site-footer dark">
+  <div class="wrap site-footer__inner">
+    <div class="site-footer__top">
+      <div class="site-footer__cta">
+        <p class="label">{s.kontaktua}</p>
+        <p class="big">{s.ctaBig} <em>{s.ctaEm}</em></p>
+        <a class="site-footer__mail" href={`mailto:${mail}`}>{mail} →</a>
+      </div>
+      <div class="site-footer__links">
+        <nav aria-label={s.sections}>
+          <p class="label">{s.sections}</p>
+          <a href="/koadernoa">{s.koadernoa}</a>
+          <a href={url(lang, '/') + '#zerbitzuak'}>{s.zerbitzuak}</a>
+          <a href={url(lang, '/lanak')}>{s.lanak}</a>
+          <a href={url(lang, '/ikerketa')}>{s.ikerketa}</a>
+          <a href={url(lang, '/niri-buruz')}>{s.niriBuruz}</a>
+        </nav>
+        {networks.length > 0 && (
+          <div>
+            <p class="label">{s.networks}</p>
+            {networks.map((n) => <a href={n.href} rel="me noopener" target="_blank">{n.label}</a>)}
+          </div>
+        )}
+        <div>
+          <p class="label">{t('eu').koadernoa}</p>
+          <a href="/rss.xml">{s.subscribe}</a>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© {year} Mikel Ayllon</span>
+      <span>{s.place}</span>
+      <a href="#">{s.top} ↑</a>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,24 @@
+# Ikerketa (investigación)
+eu:
+  izenburua: "Arte eszenikoak"
+  izenburua_etzana: "eta"
+  izenburua_amaiera: "komunikazioa"
+  azalpena: ""
+es:
+  izenburua: "Artes escénicas"
+  izenburua_etzana: "y"
+  izenburua_amaiera: "comunicación"
+  azalpena: ""
+en:
+  izenburua: "Performing arts"
+  izenburua_etzana: "and"
+  izenburua_amaiera: "communication"
+  azalpena: ""
+
+# Argitalpenak eta proiektuak. Mota: artikulua, liburua, kapitulua, hitzaldia, tesia, azterketa, proiektua, bestelakoa
+argitalpenak:
+  - izenburua: "Kaleko arteen mapa Euskal Herrian"
+    mota: azterketa
+    xehetasunak: "Antzerkia, dantza, zirkua"
+    urtea: ""
+    esteka: ""

@@ -1,0 +1,59 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { LANGS, type Lang, url } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  title?: string;
+  description?: string;
+  /** Path without language prefix, used to build the language switcher (e.g. '/lanak/kasete'). */
+  path: string;
+  /** Override language-switcher targets (e.g. Basque-only pages). */
+  alternates?: Partial<Record<Lang, string>>;
+  current?: 'koadernoa' | 'zerbitzuak' | 'lanak' | 'ikerketa' | 'niri-buruz';
+  /** Dark hero block that continues the header (home page). */
+  heroSlot?: boolean;
+  image?: string;
+}
+
+const { lang, title, description, path, alternates = {}, current, image } = Astro.props;
+const siteName = 'Mikel Ayllon';
+const fullTitle = title ? `${title} · ${siteName}` : siteName;
+const links = Object.fromEntries(LANGS.map((l) => [l, alternates[l] ?? url(l, path)])) as Record<Lang, string>;
+const canonical = new URL(links[lang], Astro.site);
+const ogImage = new URL(image || '/irudiak/mikel-ayllon.jpg', Astro.site);
+const hasSlot = Astro.slots.has('hero');
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonical} />
+    {LANGS.filter((l) => !alternates[l] || l === lang).map((l) => (
+      <link rel="alternate" hreflang={l} href={new URL(links[l], Astro.site)} />
+    ))}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="Koadernoa · Mikel Ayllon" href="/rss.xml" />
+    <meta property="og:title" content={fullTitle} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body>
+    <div class="dark">
+      <Header lang={lang} links={links} current={current} />
+      {hasSlot && <slot name="hero" />}
+    </div>
+    <main id="edukia">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+  </body>
+</html>

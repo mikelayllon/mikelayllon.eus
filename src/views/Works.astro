@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHead from '../components/SectionHead.astro';
+import WorkCard from '../components/WorkCard.astro';
+import { type Lang, t } from '../i18n';
+import { getWorks } from '../lib/content';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang);
+const works = await getWorks();
+---
+<Base lang={lang} path="/lanak" title={s.lanak} current="lanak">
+  <section class="wrap page-head">
+    <SectionHead title={s.lanak} as="h1" />
+  </section>
+  <section class="wrap">
+    <div class="cols cols--3 cols--rule-b">
+      <div class="cols__grid">
+        {works.map((w, i) => <WorkCard lang={lang} work={w} num={i + 1} />)}
+      </div>
+    </div>
+  </section>
+</Base>

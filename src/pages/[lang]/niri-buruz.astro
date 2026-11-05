@@ -1,0 +1,8 @@
+---
+import About from '../../views/About.astro';
+export function getStaticPaths() {
+  return [{ params: { lang: 'es' } }, { params: { lang: 'en' } }];
+}
+const { lang } = Astro.params as { lang: 'es' | 'en' };
+---
+<About lang={lang} />

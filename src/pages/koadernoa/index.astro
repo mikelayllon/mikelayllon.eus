@@ -1,0 +1,34 @@
+---
+import Base from '../../layouts/Base.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import { t, formatDate } from '../../i18n';
+import { getPosts, excerpt } from '../../lib/content';
+
+const s = t('eu');
+const posts = await getPosts();
+---
+<Base lang="eu" path="/koadernoa" title={s.koadernoa} current="koadernoa" alternates={{ es: '/es/', en: '/en/' }}>
+  <section class="wrap page-head">
+    <SectionHead title={s.koadernoa} as="h1" linkLabel="RSS" linkHref="/rss.xml" />
+    {posts.length > 0 ? (
+      <ul class="post-list">
+        {posts.map((p) => (
+          <li>
+            <a href={`/koadernoa/${p.id}`}>
+              <div>
+                <p class="label muted">{formatDate(p.data.data)}</p>
+                {p.data.etiketak[0] && <p class="label accent" style="margin-top: 6px">{p.data.etiketak[0]}</p>}
+              </div>
+              <div>
+                <h2>{p.data.izenburua}</h2>
+                <p>{p.data.sarrera || excerpt(p.body)}</p>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="empty">{s.noPosts}</p>
+    )}
+  </section>
+</Base>

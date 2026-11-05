@@ -1,0 +1,88 @@
+---
+import Base from '../layouts/Base.astro';
+import { type Lang, t, url } from '../i18n';
+import { getWorks, md, pick } from '../lib/content';
+
+interface Props { lang: Lang; id: string }
+const { lang, id } = Astro.props;
+const s = t(lang);
+const works = await getWorks();
+const index = works.findIndex((w) => w.id === id);
+const work = works[index];
+const d = work.data;
+const loc = pick<any>(d, lang);
+const next = works[(index + 1) % works.length];
+const textHtml = md(loc.testua);
+---
+<Base lang={lang} path={`/lanak/${id}`} title={d.izenburua} description={loc.laburpena} current="lanak" image={d.irudia || undefined}>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="breadcrumb">
+      <a href={url(lang, '/lanak')}>{s.lanak}</a>  /  <span aria-current="page">{d.izenburua}</span>
+    </nav>
+
+    <div class="work-hero">
+      <div class="work-hero__title">
+        <span class="work-hero__num" aria-hidden="true">{index + 1}</span>
+        <div style="min-width: 0">
+          <h1>{d.izenburua}</h1>
+          {(loc.azpititulua || loc.mota) && <p class="sub">{loc.azpititulua || loc.mota}</p>}
+        </div>
+      </div>
+      {loc.datuak?.length > 0 && (
+        <dl class="facts">
+          {loc.datuak.map((f: any) => (
+            <div><dt>{f.etiketa}</dt><dd>{f.balioa}</dd></div>
+          ))}
+        </dl>
+      )}
+    </div>
+
+    {d.irudia && <img class="work-cover" src={d.irudia} alt={d.irudi_alt || ''} />}
+
+    {d.audioa && (
+      <div class="audio-box">
+        <span class="label">{s.listen}</span>
+        <audio controls preload="none" src={d.audioa}></audio>
+      </div>
+    )}
+
+    {textHtml && (
+      <div class="prose-row">
+        <p class="label label--13">{s.project}</p>
+        <div class="body prose prose--lead" set:html={textHtml} />
+      </div>
+    )}
+
+    {d.argazkiak.length > 0 && (
+      <div class="gallery">
+        {d.argazkiak.filter((g: any) => g.irudia).map((g: any) => (
+          <figure>
+            <img src={g.irudia} alt={g.oina || ''} loading="lazy" decoding="async" />
+            {g.oina && <figcaption>{g.oina}</figcaption>}
+          </figure>
+        ))}
+      </div>
+    )}
+
+    {loc.fitxa?.length > 0 && (
+      <div class="prose-row">
+        <p class="label label--13">{s.credits}</p>
+        <dl class="body credits">
+          {loc.fitxa.map((c: any) => (
+            <div><dt>{c.rola}</dt><dd>{c.izena}</dd></div>
+          ))}
+        </dl>
+      </div>
+    )}
+
+    {works.length > 1 && (
+      <a class="next-work" href={url(lang, `/lanak/${next.id}`)}>
+        <span class="label label--13 muted">{s.nextWork}</span>
+        <span class="t">
+          <span class="n" aria-hidden="true">{works.indexOf(next) + 1}</span>
+          <span class="name">{next.data.izenburua} →</span>
+        </span>
+      </a>
+    )}
+  </div>
+</Base>

@@ -1,0 +1,201 @@
+# Pages CMS (https://pagescms.org) — webgunea editatzeko panela
+media:
+  input: public/irudiak
+  output: /irudiak
+
+components:
+  workLang:
+    type: object
+    fields:
+      - { name: mota, label: "Mota (adib. Soinu-instalazioa)", type: string }
+      - { name: azpititulua, label: Azpititulua, type: string }
+      - { name: laburpena, label: "Laburpena (txartelean agertzen da)", type: text }
+      - { name: testua, label: Testua, type: rich-text, options: { format: markdown } }
+      - name: datuak
+        label: "Datuak (Urtea, Formatua...)"
+        type: object
+        list: true
+        fields:
+          - { name: etiketa, label: Etiketa, type: string }
+          - { name: balioa, label: Balioa, type: string }
+      - name: fitxa
+        label: Fitxa artistikoa
+        type: object
+        list: true
+        fields:
+          - { name: rola, label: Rola, type: string }
+          - { name: izena, label: Izena, type: string }
+  heroLang:
+    type: object
+    fields:
+      - { name: izenburua, label: "Izenburua (zuriz)", type: string }
+      - { name: nabarmendua, label: "Hitz nabarmendua (laranjaz)", type: string }
+      - { name: azpititulua, label: "Azpititulua (etzanez)", type: string }
+      - { name: aurkezpena, label: Aurkezpen laburra, type: text }
+  servLang:
+    type: object
+    fields:
+      - { name: izenburua, label: Izenburua, type: string }
+      - { name: izenburua_etzana, label: Izenburuaren zati etzana, type: string }
+      - { name: azalpena, label: Azalpena, type: text }
+      - name: blokeak
+        label: Blokeak
+        type: object
+        list: true
+        fields:
+          - { name: izena, label: Blokearen izena, type: string }
+          - name: zerbitzuak
+            label: Zerbitzuak
+            type: object
+            list: true
+            fields:
+              - { name: izena, label: Izena, type: string }
+              - { name: azalpena, label: Azalpena, type: string }
+  resLang:
+    type: object
+    fields:
+      - { name: izenburua, label: Izenburua, type: string }
+      - { name: izenburua_etzana, label: Hitz etzana, type: string }
+      - { name: izenburua_amaiera, label: Izenburuaren amaiera, type: string }
+      - { name: azalpena, label: Azalpena, type: text }
+  aboutLang:
+    type: object
+    fields:
+      - { name: sarrera, label: Sarrera, type: text }
+      - { name: testua, label: Testua, type: rich-text, options: { format: markdown } }
+
+content:
+  # ---------------- Koadernoa (bloga, euskaraz) ----------------
+  - name: koadernoa
+    label: Koadernoa
+    type: collection
+    path: src/content/koadernoa
+    filename: "{primary}.md"
+    format: yaml-frontmatter
+    view:
+      fields: [izenburua, data, zirriborroa]
+      primary: izenburua
+      sort: [data]
+      default:
+        sort: data
+        order: desc
+    fields:
+      - { name: izenburua, label: Izenburua, type: string, required: true }
+      - { name: data, label: Data, type: date, required: true }
+      - { name: sarrera, label: "Sarrera (izenburuaren azpiko testu laburra)", type: text }
+      - { name: etiketak, label: Etiketak, type: string, list: true }
+      - { name: irudia, label: Irudi nagusia, type: image }
+      - { name: irudi_oina, label: Irudiaren oina, type: string }
+      - { name: zirriborroa, label: "Zirriborroa (markatuta badago, ez da argitaratzen)", type: boolean, default: false }
+      - { name: body, label: Testua, type: rich-text, options: { format: markdown } }
+
+  # ---------------- Lanak (obras) ----------------
+  - name: lanak
+    label: Lanak
+    type: collection
+    path: src/content/lanak
+    filename: "{primary}.md"
+    format: yaml-frontmatter
+    view:
+      fields: [izenburua, ordena, ezkutatu]
+      primary: izenburua
+      sort: [ordena]
+      default:
+        sort: ordena
+        order: asc
+    fields:
+      - { name: izenburua, label: Izenburua, type: string, required: true }
+      - { name: ordena, label: "Ordena (1 = lehena)", type: number }
+      - { name: ezkutatu, label: Ezkutatu webgunean, type: boolean, default: false }
+      - { name: irudia, label: Irudi nagusia, type: image }
+      - { name: irudi_alt, label: "Irudiaren deskribapena (irisgarritasuna)", type: string }
+      - { name: audioa, label: "Soinu-zatia (mp3)", type: file }
+      - name: argazkiak
+        label: Argazki gehiago
+        type: object
+        list: true
+        fields:
+          - { name: irudia, label: Irudia, type: image }
+          - { name: oina, label: "Oina / egilea", type: string }
+      - { name: eu, label: Euskara, component: workLang }
+      - { name: es, label: Gaztelania, component: workLang }
+      - { name: en, label: Ingelesa, component: workLang }
+
+  # ---------------- Orri finkoak ----------------
+  - name: hasiera
+    label: "Hasiera (goiburua)"
+    type: file
+    path: src/content/orriak/hasiera.yml
+    format: yaml
+    fields:
+      - { name: argazkia, label: Argazkia, type: image }
+      - { name: argazkiaren_egilea, label: Argazkiaren egilea, type: string }
+      - { name: eu, label: Euskara, component: heroLang }
+      - { name: es, label: Gaztelania, component: heroLang }
+      - { name: en, label: Ingelesa, component: heroLang }
+
+  - name: zerbitzuak
+    label: Zerbitzuak
+    type: file
+    path: src/content/orriak/zerbitzuak.yml
+    format: yaml
+    fields:
+      - { name: eu, label: Euskara, component: servLang }
+      - { name: es, label: Gaztelania, component: servLang }
+      - { name: en, label: Ingelesa, component: servLang }
+
+  - name: ikerketa
+    label: Ikerketa
+    type: file
+    path: src/content/orriak/ikerketa.yml
+    format: yaml
+    fields:
+      - { name: eu, label: Euskara, component: resLang }
+      - { name: es, label: Gaztelania, component: resLang }
+      - { name: en, label: Ingelesa, component: resLang }
+      - name: argitalpenak
+        label: Argitalpenak eta proiektuak
+        type: object
+        list: true
+        fields:
+          - { name: izenburua, label: Izenburua, type: string }
+          - name: mota
+            label: Mota
+            type: select
+            options:
+              values:
+                - { name: artikulua, label: Artikulua }
+                - { name: liburua, label: Liburua }
+                - { name: kapitulua, label: Liburu-kapitulua }
+                - { name: hitzaldia, label: Hitzaldia }
+                - { name: tesia, label: Tesia }
+                - { name: azterketa, label: Azterketa }
+                - { name: proiektua, label: Ikerketa-proiektua }
+                - { name: bestelakoa, label: Bestelakoa }
+          - { name: xehetasunak, label: "Xehetasunak (aldizkaria, argitaletxea...)", type: string }
+          - { name: urtea, label: Urtea, type: string }
+          - { name: esteka, label: Esteka, type: string }
+
+  - name: niri-buruz
+    label: Niri buruz
+    type: file
+    path: src/content/orriak/niri-buruz.yml
+    format: yaml
+    fields:
+      - { name: argazkia, label: Argazkia, type: image }
+      - { name: eu, label: Euskara, component: aboutLang }
+      - { name: es, label: Gaztelania, component: aboutLang }
+      - { name: en, label: Ingelesa, component: aboutLang }
+
+  - name: ezarpenak
+    label: "Ezarpenak (posta eta sareak)"
+    type: file
+    path: src/content/orriak/ezarpenak.yml
+    format: yaml
+    fields:
+      - { name: posta, label: Posta elektronikoa, type: string }
+      - { name: instagram, label: "Instagram (esteka osoa)", type: string }
+      - { name: academia, label: "Academia (esteka osoa)", type: string }
+      - { name: linkedin, label: "LinkedIn (esteka osoa)", type: string }
+      - { name: orcid, label: "ORCID (esteka osoa)", type: string }
+      - { name: scholar, label: "Google Scholar (esteka osoa)", type: string }

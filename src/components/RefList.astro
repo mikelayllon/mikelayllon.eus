@@ -1,0 +1,28 @@
+---
+import { type Lang, t } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  items: any[];
+}
+const { lang, items } = Astro.props;
+const s = t(lang);
+---
+<ul class="ref-list">
+  {items.map((it) => {
+    const meta = [s.refTypes[it.mota] ?? '', it.xehetasunak, it.urtea].filter(Boolean).join(' · ');
+    const inner = (
+      <>
+        <span class="title">{it.izenburua}</span>
+        {meta && <span class="label meta">{meta}</span>}
+      </>
+    );
+    return (
+      <li>
+        {it.esteka
+          ? <a class="row" href={it.esteka} target="_blank" rel="noopener">{inner}</a>
+          : <div class="row">{inner}</div>}
+      </li>
+    );
+  })}
+</ul>

@@ -1,0 +1,111 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHead from '../components/SectionHead.astro';
+import WorkCard from '../components/WorkCard.astro';
+import RefList from '../components/RefList.astro';
+import { type Lang, t, url, formatDate } from '../i18n';
+import { getPage, pick, getWorks, getPosts, excerpt } from '../lib/content';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang);
+
+const heroData = await getPage('hasiera');
+const hero = pick<any>(heroData, lang);
+const servData = await getPage('zerbitzuak');
+const serv = pick<any>(servData, lang);
+const resData = await getPage('ikerketa');
+const res = pick<any>(resData, lang);
+const refs = (resData.argitalpenak ?? []).slice(0, 4);
+const works = (await getWorks()).slice(0, 3);
+const posts = (await getPosts()).slice(0, 3);
+---
+<Base lang={lang} path="/" description={hero.aurkezpena}>
+  <section slot="hero" class="wrap hero" aria-labelledby="hero-title">
+    <div class="hero__text">
+      <h1 id="hero-title" class="hero__title">
+        {hero.izenburua} <span class="hl">{hero.nabarmendua}</span>. <em>{hero.azpititulua}</em>
+      </h1>
+      <div class="hero__bio">
+        <p class="label label--13">{s.niriBuruz}</p>
+        <p class="text">{hero.aurkezpena}</p>
+        <a class="link-more" href={url(lang, '/niri-buruz')}>{s.readMore} →</a>
+      </div>
+    </div>
+    <div class="hero__photo">
+      <img src={heroData.argazkia} alt={s.portrait} width="944" height="976" fetchpriority="high" />
+      {heroData.argazkiaren_egilea && <p class="hero__credit">{s.photo}: {heroData.argazkiaren_egilea}</p>}
+    </div>
+  </section>
+
+  <section id="koadernoa" class="wrap section section--first">
+    <SectionHead num="01" title={t('eu').koadernoa} linkLabel={posts.length ? s.allPosts : undefined} linkHref="/koadernoa" />
+    {posts.length > 0 ? (
+      <div class="cols cols--3 cols--rule-b">
+        <div class="cols__grid">
+          {posts.map((p) => (
+            <a class="post-card" href={`/koadernoa/${p.id}`} lang="eu">
+              <div class="post-card__meta">
+                <span class="label muted">{formatDate(p.data.data)}</span>
+                {p.data.etiketak[0] && <span class="label accent">{p.data.etiketak[0]}</span>}
+              </div>
+              <h3>{p.data.izenburua}</h3>
+              <p>{p.data.sarrera || excerpt(p.body)}</p>
+              <span class="go">{t('eu').read} →</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    ) : (
+      <p class="empty">{s.noPosts}</p>
+    )}
+    {s.onlyBasque && <p class="lang-note">{s.onlyBasque}</p>}
+  </section>
+
+  <section id="zerbitzuak" class="wrap section">
+    <SectionHead num="02" title={s.zerbitzuak} linkLabel={s.projectCta} linkHref="#harremana" />
+    <div class="lede">
+      <p class="lede__big">{serv.izenburua} <em>{serv.izenburua_etzana}</em></p>
+      {serv.azalpena && <p class="lede__small">{serv.azalpena}</p>}
+    </div>
+    <div class="cols cols--3 cols--rule-t cols--rule-b" style="margin-top: 48px">
+      <div class="cols__grid">
+        {(serv.blokeak ?? []).map((b: any) => (
+          <div class="service-block">
+            <h3>{b.izena}</h3>
+            <ul>
+              {(b.zerbitzuak ?? []).map((z: any) => (
+                <li>
+                  <p class="name">{z.izena}</p>
+                  {z.azalpena && <p class="desc">{z.azalpena}</p>}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="lanak" class="wrap section">
+    <SectionHead num="03" title={s.lanak} linkLabel={s.allWorks} linkHref={url(lang, '/lanak')} />
+    <div class="cols cols--3 cols--rule-b">
+      <div class="cols__grid">
+        {works.map((w, i) => <WorkCard lang={lang} work={w} num={i + 1} />)}
+      </div>
+    </div>
+  </section>
+
+  <section id="ikerketa" class="wrap section">
+    <SectionHead num="04" title={s.ikerketa} linkLabel={s.publications} linkHref={url(lang, '/ikerketa')} />
+    <div class="split">
+      <div class="split__aside">
+        <p class="big">{res.izenburua} <em>{res.izenburua_etzana}</em> {res.izenburua_amaiera}</p>
+        {res.azalpena && <p class="small">{res.azalpena}</p>}
+      </div>
+      <div class="split__main">
+        <RefList lang={lang} items={refs} />
+      </div>
+    </div>
+  </section>
+</Base>

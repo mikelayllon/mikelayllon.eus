@@ -1,0 +1,64 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { t, formatDate } from '../../i18n';
+import { getPosts, readingMinutes, excerpt } from '../../lib/content';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((p) => ({ params: { slug: p.id }, props: { id: p.id } }));
+}
+
+const { id } = Astro.props;
+const s = t('eu');
+const posts = await getPosts();
+const post = posts.find((p) => p.id === id)!;
+const d = post.data;
+const { Content } = await render(post);
+const others = posts.filter((p) => p.id !== id).slice(0, 2);
+---
+<Base lang="eu" path={`/koadernoa/${id}`} title={d.izenburua} description={d.sarrera || excerpt(post.body)} current="koadernoa" alternates={{ es: '/es/', en: '/en/' }} image={d.irudia || undefined}>
+  <article class="article">
+    <div class="post-card__meta">
+      <a class="label accent" href="/koadernoa" style="text-decoration: none">{s.koadernoa}</a>
+      <span class="label muted">{formatDate(d.data)}</span>
+      <span class="label muted">{readingMinutes(post.body)} {s.minRead}</span>
+    </div>
+    <h1>{d.izenburua}</h1>
+    {d.sarrera && <p class="standfirst">{d.sarrera}</p>}
+    <div class="byline">
+      <span class="who">Mikel Ayllon</span>
+      {d.etiketak.length > 0 && (
+        <div class="tags">{d.etiketak.map((tag) => <span class="tag">{tag}</span>)}</div>
+      )}
+    </div>
+    {d.irudia && (
+      <figure class="cover">
+        <img src={d.irudia} alt={d.irudi_oina || ''} />
+        {d.irudi_oina && <figcaption>{d.irudi_oina}</figcaption>}
+      </figure>
+    )}
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+
+  {others.length > 0 && (
+    <section class="wrap section">
+      <div class="section__head">
+        <h2>{s.keepReading}</h2>
+        <a class="link-more" href="/koadernoa">← {s.allPosts}</a>
+      </div>
+      <div class="cols cols--3 cols--rule-b">
+        <div class="cols__grid">
+          {others.map((p) => (
+            <a class="post-card" href={`/koadernoa/${p.id}`}>
+              <span class="label muted">{formatDate(p.data.data)}</span>
+              <h3>{p.data.izenburua}</h3>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</Base>
