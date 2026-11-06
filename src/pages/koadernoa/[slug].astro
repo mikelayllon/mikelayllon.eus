@@ -17,7 +17,7 @@ const d = post.data;
 const { Content } = await render(post);
 const others = posts.filter((p) => p.id !== id).slice(0, 2);
 ---
-<Base lang="eu" path={`/koadernoa/${id}`} title={d.izenburua} description={d.sarrera || excerpt(post.body)} current="koadernoa" alternates={{ es: '/es/', en: '/en/' }} image={d.irudia || undefined}>
+<Base lang="eu" path={`/koadernoa/${id}`} title={d.izenburua} description={d.sarrera || excerpt(post.body)} current="koadernoa" alternates={{ en: '/en/' }} image={d.irudia || undefined}>
   <article class="article">
     <div class="post-card__meta">
       <a class="label accent" href="/koadernoa" style="text-decoration: none">{s.koadernoa}</a>

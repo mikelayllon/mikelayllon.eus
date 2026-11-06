@@ -7,7 +7,7 @@ import { getPosts, excerpt } from '../../lib/content';
 const s = t('eu');
 const posts = await getPosts();
 ---
-<Base lang="eu" path="/koadernoa" title={s.koadernoa} current="koadernoa" alternates={{ es: '/es/', en: '/en/' }}>
+<Base lang="eu" path="/koadernoa" title={s.koadernoa} current="koadernoa" alternates={{ en: '/en/' }}>
   <section class="wrap page-head">
     <SectionHead title={s.koadernoa} as="h1" linkLabel="RSS" linkHref="/rss.xml" />
     {posts.length > 0 ? (

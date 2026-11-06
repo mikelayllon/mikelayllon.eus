@@ -1,8 +1,8 @@
-export const LANGS = ['eu', 'es', 'en'] as const;
+export const LANGS = ['eu', 'en'] as const;
 export type Lang = (typeof LANGS)[number];
 export const DEFAULT_LANG: Lang = 'eu';
 
-/** Prefix for a language: '' for Basque (default), '/es', '/en'. */
+/** Prefix for a language: '' for Basque (default), '/en' for English. */
 export function base(lang: Lang): string {
   return lang === DEFAULT_LANG ? '' : `/${lang}`;
 }
@@ -63,56 +63,6 @@ export const ui = {
       bestelakoa: 'Bestelakoa',
     } as Record<string, string>,
     months: ['urt.', 'ots.', 'mar.', 'api.', 'mai.', 'eka.', 'uzt.', 'abu.', 'ira.', 'urr.', 'aza.', 'abe.'],
-  },
-  es: {
-    langName: 'Castellano',
-    nav: 'Principal',
-    langSwitch: 'Idioma',
-    skip: 'Ir al contenido',
-    koadernoa: 'Cuaderno',
-    zerbitzuak: 'Servicios',
-    lanak: 'Obras',
-    ikerketa: 'Investigación',
-    niriBuruz: 'Sobre mí',
-    kontaktua: 'Contacto',
-    readMore: 'Leer más',
-    read: 'Leer',
-    allPosts: 'Todas las entradas',
-    allWorks: 'Todas las obras',
-    publications: 'Publicaciones',
-    projectCta: '¿Tienes un proyecto? Escríbeme',
-    ctaBig: '¿Tienes un proyecto en mente?',
-    ctaEm: 'Hablemos.',
-    sections: 'Secciones',
-    networks: 'Redes',
-    subscribe: 'Suscribirse (RSS)',
-    top: 'Arriba',
-    place: 'Bilbao · Euskal Herria',
-    photo: 'Foto',
-    project: 'El proyecto',
-    credits: 'Ficha',
-    gallery: 'Imágenes',
-    listen: 'Escuchar',
-    nextWork: 'Siguiente obra',
-    noPosts: 'Pronto, las primeras entradas.',
-    onlyBasque: 'El cuaderno se escribe en euskera.',
-    minRead: 'min de lectura',
-    notes: 'Notas',
-    keepReading: 'Seguir leyendo',
-    portrait: 'Retrato de Mikel Ayllon',
-    notFound: 'Esta página no existe.',
-    backHome: 'Volver al inicio',
-    refTypes: {
-      artikulua: 'Artículo',
-      liburua: 'Libro',
-      kapitulua: 'Capítulo de libro',
-      hitzaldia: 'Ponencia',
-      tesia: 'Tesis',
-      azterketa: 'Estudio',
-      proiektua: 'Proyecto de investigación',
-      bestelakoa: 'Otros',
-    } as Record<string, string>,
-    months: ['ene.', 'feb.', 'mar.', 'abr.', 'may.', 'jun.', 'jul.', 'ago.', 'sep.', 'oct.', 'nov.', 'dic.'],
   },
   en: {
     langName: 'English',

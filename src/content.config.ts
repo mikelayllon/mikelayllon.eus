@@ -33,7 +33,6 @@ const lanak = defineCollection({
     audioa: str,
     argazkiak: list(z.object({ irudia: str, oina: str })),
     eu: workLang,
-    es: workLang,
     en: workLang,
   }),
 });

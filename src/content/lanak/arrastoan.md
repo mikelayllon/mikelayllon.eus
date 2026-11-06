@@ -13,13 +13,6 @@ eu:
   testua: ""
   datuak: []
   fitxa: []
-es:
-  mota: Paseo sonoro
-  azpititulua: ""
-  laburpena: ""
-  testua: ""
-  datuak: []
-  fitxa: []
 en:
   mota: Sound walk
   azpititulua: ""

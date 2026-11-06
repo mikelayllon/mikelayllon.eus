@@ -9,3 +9,9 @@
   for = "/_astro/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# Gaztelaniazko bertsioa kendu da
+[[redirects]]
+  from = "/es/*"
+  to = "/:splat"
+  status = 301

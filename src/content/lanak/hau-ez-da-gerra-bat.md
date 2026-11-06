@@ -13,13 +13,6 @@ eu:
   testua: ""
   datuak: []
   fitxa: []
-es:
-  mota: Literatura dramática
-  azpititulua: ""
-  laburpena: ""
-  testua: ""
-  datuak: []
-  fitxa: []
 en:
   mota: Playwriting
   azpititulua: ""

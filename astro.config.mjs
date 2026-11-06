@@ -9,7 +9,7 @@ export default defineConfig({
     sitemap({
       i18n: {
         defaultLocale: 'eu',
-        locales: { eu: 'eu', es: 'es', en: 'en' },
+        locales: { eu: 'eu', en: 'en' },
       },
     }),
   ],

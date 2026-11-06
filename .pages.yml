@@ -118,7 +118,6 @@ content:
           - { name: irudia, label: Irudia, type: image }
           - { name: oina, label: "Oina / egilea", type: string }
       - { name: eu, label: Euskara, component: workLang }
-      - { name: es, label: Gaztelania, component: workLang }
       - { name: en, label: Ingelesa, component: workLang }
 
   # ---------------- Orri finkoak ----------------
@@ -131,7 +130,6 @@ content:
       - { name: argazkia, label: Argazkia, type: image }
       - { name: argazkiaren_egilea, label: Argazkiaren egilea, type: string }
       - { name: eu, label: Euskara, component: heroLang }
-      - { name: es, label: Gaztelania, component: heroLang }
       - { name: en, label: Ingelesa, component: heroLang }
 
   - name: zerbitzuak
@@ -141,7 +139,6 @@ content:
     format: yaml
     fields:
       - { name: eu, label: Euskara, component: servLang }
-      - { name: es, label: Gaztelania, component: servLang }
       - { name: en, label: Ingelesa, component: servLang }
 
   - name: ikerketa
@@ -151,7 +148,6 @@ content:
     format: yaml
     fields:
       - { name: eu, label: Euskara, component: resLang }
-      - { name: es, label: Gaztelania, component: resLang }
       - { name: en, label: Ingelesa, component: resLang }
       - name: argitalpenak
         label: Argitalpenak eta proiektuak
@@ -184,7 +180,6 @@ content:
     fields:
       - { name: argazkia, label: Argazkia, type: image }
       - { name: eu, label: Euskara, component: aboutLang }
-      - { name: es, label: Gaztelania, component: aboutLang }
       - { name: en, label: Ingelesa, component: aboutLang }
 
   - name: ezarpenak

@@ -17,17 +17,6 @@ eu:
     - etiketa: Hizkuntza
       balioa: Euskara
   fitxa: []
-es:
-  mota: Instalación sonora
-  azpititulua: Pequeña instalación sonora
-  laburpena: Pequeña instalación con un walkman y audio fragmentado que explora la lengua como presencia espectral.
-  testua: Kasete es una pequeña instalación hecha con un walkman y audio fragmentado. Explora la lengua como presencia espectral.
-  datuak:
-    - etiketa: Formato
-      balioa: Walkman y audio
-    - etiketa: Lengua
-      balioa: Euskera
-  fitxa: []
 en:
   mota: Sound installation
   azpititulua: A small sound installation
