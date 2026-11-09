@@ -37,7 +37,7 @@ components:
     fields:
       - { name: izenburua, label: Izenburua, type: string }
       - { name: izenburua_etzana, label: Izenburuaren zati etzana, type: string }
-      - { name: azalpena, label: Azalpena, type: text }
+      - { name: azalpena, label: "Azalpena (*izartxo artean* = etzanez)", type: text }
       - name: blokeak
         label: Blokeak
         type: object
