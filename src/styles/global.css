@@ -262,9 +262,9 @@ a:hover { color: var(--accent); }
 .prose img { margin: 1.8em 0; width: 100%; }
 .prose ul, .prose ol { padding-left: 1.2em; }
 .prose hr { border: 0; border-top: 1px solid var(--rule); margin: 2em 0; }
-.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr)); gap: 24px; align-items: start; padding-top: 96px; }
-.gallery figure { margin: 0; }
-.gallery img { width: 100%; height: auto; max-height: 520px; object-fit: contain; object-position: left top; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr)); gap: 24px; align-items: start; padding-top: 96px; direction: rtl; }
+.gallery figure { margin: 0; direction: ltr; }
+.gallery img { width: 100%; height: auto; max-height: 520px; object-fit: contain; object-position: right top; }
 .gallery figcaption { margin-top: 12px; font-family: var(--sans); font-size: 13px; color: var(--muted); }
 .credits { margin: 0; border-top: 1px solid var(--ink); }
 .credits > div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 24px; padding: 16px 0; border-bottom: 1px solid var(--rule); }
