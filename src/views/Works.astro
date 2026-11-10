@@ -17,7 +17,7 @@ const works = await getWorks();
   <section class="wrap">
     <div class="cols cols--3 cols--rule-b">
       <div class="cols__grid">
-        {works.map((w, i) => <WorkCard lang={lang} work={w} num={i + 1} />)}
+        {works.map((w, i) => <WorkCard lang={lang} work={w} />)}
       </div>
     </div>
   </section>

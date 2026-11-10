@@ -39,7 +39,7 @@ const posts = (await getPosts()).slice(0, 3);
   </section>
 
   <section id="koadernoa" class="wrap section section--first">
-    <SectionHead num="01" title={t('eu').koadernoa} linkLabel={posts.length ? s.allPosts : undefined} linkHref="/koadernoa" />
+    <SectionHead title={t('eu').koadernoa} linkLabel={posts.length ? s.allPosts : undefined} linkHref="/koadernoa" />
     {posts.length > 0 ? (
       <div class="cols cols--3 cols--rule-b">
         <div class="cols__grid">
@@ -63,7 +63,7 @@ const posts = (await getPosts()).slice(0, 3);
   </section>
 
   <section id="zerbitzuak" class="wrap section">
-    <SectionHead num="02" title={s.zerbitzuak} linkLabel={s.allServices} linkHref={url(lang, '/zerbitzuak')} />
+    <SectionHead title={s.zerbitzuak} linkLabel={s.allServices} linkHref={url(lang, '/zerbitzuak')} />
     <div class="lede">
       <p class="lede__big">{serv.izenburua} <em>{serv.izenburua_etzana}</em></p>
       {serv.azalpena && <div class="lede__small" set:html={md(serv.azalpena)} />}
@@ -88,16 +88,16 @@ const posts = (await getPosts()).slice(0, 3);
   </section>
 
   <section id="lanak" class="wrap section">
-    <SectionHead num="03" title={s.lanak} linkLabel={s.allWorks} linkHref={url(lang, '/lanak')} />
+    <SectionHead title={s.lanak} linkLabel={s.allWorks} linkHref={url(lang, '/lanak')} />
     <div class="cols cols--3 cols--rule-b">
       <div class="cols__grid">
-        {works.map((w, i) => <WorkCard lang={lang} work={w} num={i + 1} />)}
+        {works.map((w, i) => <WorkCard lang={lang} work={w} />)}
       </div>
     </div>
   </section>
 
   <section id="ikerketa" class="wrap section">
-    <SectionHead num="04" title={s.ikerketa} linkLabel={s.publications} linkHref={url(lang, '/ikerketa')} />
+    <SectionHead title={s.ikerketa} linkLabel={s.publications} linkHref={url(lang, '/ikerketa')} />
     <div class="split">
       <div class="split__aside">
         <p class="big">{res.izenburua} <em>{res.izenburua_etzana}</em> {res.izenburua_amaiera}</p>

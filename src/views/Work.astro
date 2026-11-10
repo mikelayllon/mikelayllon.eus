@@ -22,7 +22,6 @@ const textHtml = md(loc.testua);
 
     <div class="work-hero">
       <div class="work-hero__title">
-        <span class="work-hero__num" aria-hidden="true">{index + 1}</span>
         <div style="min-width: 0">
           <h1>{d.izenburua}</h1>
           {(loc.azpititulua || loc.mota) && <p class="sub">{loc.azpititulua || loc.mota}</p>}
@@ -79,7 +78,6 @@ const textHtml = md(loc.testua);
       <a class="next-work" href={url(lang, `/lanak/${next.id}`)}>
         <span class="label label--13 muted">{s.nextWork}</span>
         <span class="t">
-          <span class="n" aria-hidden="true">{works.indexOf(next) + 1}</span>
           <span class="name">{next.data.izenburua} →</span>
         </span>
       </a>
