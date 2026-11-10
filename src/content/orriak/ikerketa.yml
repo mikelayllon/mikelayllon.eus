@@ -1,26 +1,23 @@
-# Ikerketa (investigación)
 eu:
-  izenburua: "Arte eszenikoak"
-  izenburua_etzana: "eta"
-  izenburua_amaiera: "komunikazioa"
-  azalpena: ""
+  izenburua: Arte eszenikoak
+  izenburua_etzana: eta
+  izenburua_amaiera: komunikazioa
 en:
-  izenburua: "Performing arts"
-  izenburua_etzana: "and"
-  izenburua_amaiera: "communication"
-  azalpena: ""
-
-# Argitalpenak eta proiektuak. Mota: artikulua, liburua, kapitulua, hitzaldia, tesia, azterketa, proiektua, bestelakoa
+  izenburua: Performing arts
+  izenburua_etzana: and
+  izenburua_amaiera: communication
 argitalpenak:
-  - izenburua: "The street as Total Theatre: a sound tour through reality with Rimini Protokoll"
-    egileak: "Mikel Ayllon"
+  - izenburua: "The street as Total Theatre: a sound tour through reality with
+      Rimini Protokoll"
+    egileak: Mikel Ayllon
     mota: artikulua
-    xehetasunak: "Studies in Theatre and Performance"
+    xehetasunak: Studies in Theatre and Performance
     urtea: "2026"
-    esteka: "https://www.tandfonline.com/doi/full/10.1080/14682761.2026.2732418"
-  - izenburua: "Beyond the Power of Audio in Native Transmedia Storytelling: Synergies between Fiction and Reality"
-    egileak: "Irati Agirreazkuenaga, Mikel Ayllon"
+    esteka: https://www.tandfonline.com/doi/full/10.1080/14682761.2026.2732418
+  - izenburua: "Beyond the Power of Audio in Native Transmedia Storytelling:
+      Synergies between Fiction and Reality"
+    egileak: Irati Agirreazkuenaga, Mikel Ayllon
     mota: artikulua
-    xehetasunak: "Social Sciences 12 (6), 344"
+    xehetasunak: Social Sciences
     urtea: "2023"
-    esteka: "https://www.mdpi.com/2076-0760/12/6/344"
+    esteka: https://www.mdpi.com/2076-0760/12/6/344
