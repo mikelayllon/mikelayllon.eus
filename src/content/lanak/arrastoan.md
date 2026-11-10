@@ -2,22 +2,9 @@
 izenburua: Arrastoan
 ordena: 1
 ezkutatu: false
-irudia: ""
-irudi_alt: ""
-audioa: ""
-argazkiak: []
+irudia: /irudiak/arrastoan_general_eitb_3000x3000.jpg
 eu:
   mota: Soinu-ibilaldia
-  azpititulua: ""
-  laburpena: ""
-  testua: ""
-  datuak: []
-  fitxa: []
 en:
   mota: Sound walk
-  azpititulua: ""
-  laburpena: ""
-  testua: ""
-  datuak: []
-  fitxa: []
 ---
