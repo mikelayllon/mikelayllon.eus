@@ -5,6 +5,7 @@ ezkutatu: false
 irudia: /irudiak/Etiketa_pages-to-jpg-0001.jpg
 irudi_alt: Kasete, Mikel Ayllon, 2026. Mamuak polikarbonato, kobre,
   burdin-oxido, poliester, mylar, neodimio eta poliuretanoan.
+audioa: /irudiak/Kasete motza.mp3
 eu:
   mota: Soinu-instalazioa
   azpititulua: Soinu-instalazio txikia
