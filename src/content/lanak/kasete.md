@@ -2,8 +2,8 @@
 izenburua: Kasete
 ordena: 2
 ezkutatu: false
-irudia: ""
-irudi_alt: ""
+irudia: /irudiak/kasete.jpg
+irudi_alt: "Kasete, Mikel Ayllon, 2026. Mamuak polikarbonato, kobre, burdin-oxido, poliester, mylar, neodimio eta poliuretanoan."
 audioa: ""
 argazkiak: []
 eu:
