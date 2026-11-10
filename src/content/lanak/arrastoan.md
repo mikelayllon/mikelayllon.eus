@@ -2,7 +2,8 @@
 izenburua: Arrastoan
 ordena: 1
 ezkutatu: false
-irudia: /irudiak/arrastoan_general_eitb_3000x3000.jpg
+irudia: /irudiak/arrastoan.jpg
+irudi_alt: "Arrastoan, GUAU ibilbideak: entzungailuak jantzita dagoen pertsona baten irudia"
 eu:
   mota: Soinu-ibilaldia
 en:
