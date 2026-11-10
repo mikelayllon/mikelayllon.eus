@@ -4,16 +4,27 @@ import { type Lang, t } from '../i18n';
 interface Props {
   lang: Lang;
   items: any[];
+  limit?: number;
 }
-const { lang, items } = Astro.props;
+const { lang, items, limit } = Astro.props;
 const s = t(lang);
+const sorted = [...items]
+  .sort((a, b) => String(b.urtea ?? '').localeCompare(String(a.urtea ?? '')))
+  .slice(0, limit ?? items.length);
 ---
 <ul class="ref-list">
-  {items.map((it) => {
-    const meta = [s.refTypes[it.mota] ?? '', it.xehetasunak, it.urtea].filter(Boolean).join(' · ');
+  {sorted.map((it) => {
+    const meta = [s.refTypes[it.mota] ?? '', it.urtea].filter(Boolean).join(' · ');
     const inner = (
       <>
-        <span class="title">{it.izenburua}</span>
+        <span class="ref-main">
+          <span class="title">{it.izenburua}{it.esteka && <span class="ext" aria-hidden="true"> ↗</span>}</span>
+          {(it.egileak || it.xehetasunak) && (
+            <span class="ref-sub">
+              {it.egileak}{it.egileak && it.xehetasunak && ' — '}{it.xehetasunak && <em>{it.xehetasunak}</em>}
+            </span>
+          )}
+        </span>
         {meta && <span class="label meta">{meta}</span>}
       </>
     );

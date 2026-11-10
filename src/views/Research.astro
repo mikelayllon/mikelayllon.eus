@@ -10,7 +10,7 @@ const { lang } = Astro.props;
 const s = t(lang);
 const data = await getPage('ikerketa');
 const res = pick<any>(data, lang);
-const items = [...(data.argitalpenak ?? [])].sort((a: any, b: any) => String(b.urtea ?? '').localeCompare(String(a.urtea ?? '')));
+const items = data.argitalpenak ?? [];
 ---
 <Base lang={lang} path="/ikerketa" title={s.ikerketa} current="ikerketa">
   <section class="wrap page-head">

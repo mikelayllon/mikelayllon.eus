@@ -12,8 +12,15 @@ en:
 
 # Argitalpenak eta proiektuak. Mota: artikulua, liburua, kapitulua, hitzaldia, tesia, azterketa, proiektua, bestelakoa
 argitalpenak:
-  - izenburua: "Kaleko arteen mapa Euskal Herrian"
-    mota: azterketa
-    xehetasunak: "Antzerkia, dantza, zirkua"
-    urtea: ""
-    esteka: ""
+  - izenburua: "The street as Total Theatre: a sound tour through reality with Rimini Protokoll"
+    egileak: "Mikel Ayllon"
+    mota: artikulua
+    xehetasunak: "Studies in Theatre and Performance"
+    urtea: "2026"
+    esteka: "https://www.tandfonline.com/doi/full/10.1080/14682761.2026.2732418"
+  - izenburua: "Beyond the Power of Audio in Native Transmedia Storytelling: Synergies between Fiction and Reality"
+    egileak: "Irati Agirreazkuenaga, Mikel Ayllon"
+    mota: artikulua
+    xehetasunak: "Social Sciences 12 (6), 344"
+    urtea: "2023"
+    esteka: "https://www.mdpi.com/2076-0760/12/6/344"

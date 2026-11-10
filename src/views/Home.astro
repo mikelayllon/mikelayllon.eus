@@ -16,7 +16,7 @@ const servData = await getPage('zerbitzuak');
 const serv = pick<any>(servData, lang);
 const resData = await getPage('ikerketa');
 const res = pick<any>(resData, lang);
-const refs = (resData.argitalpenak ?? []).slice(0, 4);
+const refs = resData.argitalpenak ?? [];
 const works = (await getWorks()).slice(0, 3);
 const posts = (await getPosts()).slice(0, 3);
 ---
@@ -104,7 +104,7 @@ const posts = (await getPosts()).slice(0, 3);
         {res.azalpena && <p class="small">{res.azalpena}</p>}
       </div>
       <div class="split__main">
-        <RefList lang={lang} items={refs} />
+        <RefList lang={lang} items={refs} limit={4} />
       </div>
     </div>
   </section>

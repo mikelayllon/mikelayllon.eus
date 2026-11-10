@@ -155,6 +155,7 @@ content:
         list: true
         fields:
           - { name: izenburua, label: Izenburua, type: string }
+          - { name: egileak, label: "Egileak (komaz bereizita)", type: string }
           - name: mota
             label: Mota
             type: select
@@ -168,7 +169,7 @@ content:
                 - { name: azterketa, label: Azterketa }
                 - { name: proiektua, label: Ikerketa-proiektua }
                 - { name: bestelakoa, label: Bestelakoa }
-          - { name: xehetasunak, label: "Xehetasunak (aldizkaria, argitaletxea...)", type: string }
+          - { name: xehetasunak, label: "Aldizkaria / argitaletxea", type: string }
           - { name: urtea, label: Urtea, type: string }
           - { name: esteka, label: Esteka, type: string }
 
