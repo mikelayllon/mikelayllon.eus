@@ -6,6 +6,8 @@ irudia: /irudiak/Etiketa_pages-to-jpg-0001.jpg
 irudi_alt: Kasete, Mikel Ayllon, 2026. Mamuak polikarbonato, kobre,
   burdin-oxido, poliester, mylar, neodimio eta poliuretanoan.
 audioa: /irudiak/Kasete motza.mp3
+argazkiak:
+  - irudia: /irudiak/Kasete.jpeg
 eu:
   mota: Soinu-instalazioa
   azpititulua: Soinu-instalazio txikia
@@ -47,10 +49,10 @@ en:
     remembers, voices that no longer belong to anyone.
 
 
-    The listening is intimate and solitary, but the ghost caught in the
-    magnetic particles of the tape is collective. It takes shape in every body
-    that stops, puts on the headphones and listens. *Kasete* offers the echo of
-    who we were, the shadow of everything that has not yet gone. The trace of
+    The listening is intimate and solitary, but the ghost caught in the magnetic
+    particles of the tape is collective. It takes shape in every body that
+    stops, puts on the headphones and listens. *Kasete* offers the echo of who
+    we were, the shadow of everything that has not yet gone. The trace of
     everything that wants to stay with us.
 
 
