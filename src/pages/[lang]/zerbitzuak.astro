@@ -1,0 +1,8 @@
+---
+import Services from '../../views/Services.astro';
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }];
+}
+const { lang } = Astro.params as { lang: 'en' };
+---
+<Services lang={lang} />

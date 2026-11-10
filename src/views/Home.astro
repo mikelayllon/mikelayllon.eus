@@ -63,7 +63,7 @@ const posts = (await getPosts()).slice(0, 3);
   </section>
 
   <section id="zerbitzuak" class="wrap section">
-    <SectionHead num="02" title={s.zerbitzuak} linkLabel={s.projectCta} linkHref="#harremana" />
+    <SectionHead num="02" title={s.zerbitzuak} linkLabel={s.allServices} linkHref={url(lang, '/zerbitzuak')} />
     <div class="lede">
       <p class="lede__big">{serv.izenburua} <em>{serv.izenburua_etzana}</em></p>
       {serv.azalpena && <div class="lede__small" set:html={md(serv.azalpena)} />}
