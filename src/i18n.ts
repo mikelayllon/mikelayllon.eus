@@ -13,7 +13,8 @@ export const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
 /** Prefix a root-relative path ('/irudiak/x.jpg') with the site base. External URLs pass through. */
 export function href(path: string | undefined | null): string {
   if (!path) return '';
-  return path.startsWith('/') && !path.startsWith('//') ? `${BASE}${path}` : path;
+  const p = path.replace(/ /g, '%20');
+  return p.startsWith('/') && !p.startsWith('//') ? `${BASE}${p}` : p;
 }
 
 /** Build a localized URL. `path` starts with '/' (e.g. '/lanak'). */

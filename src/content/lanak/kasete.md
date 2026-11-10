@@ -39,8 +39,24 @@ en:
   azpititulua: A small sound installation
   laburpena: A small installation with a Walkman and fragmented audio, exploring
     language as a spectral presence.
-  testua: Kasete is a small installation made with a Walkman and fragmented audio.
-    It explores language as a spectral presence.
+  testua: >-
+    *Kasete* is a minimal, fragile sound installation. A Walkman on top of a
+    display case. Still outside, not yet in a museum, like something waiting on
+    the threshold of disappearance. When you put on the headphones, something is
+    set in motion: unfinished conversations, songs that memory only half
+    remembers, voices that no longer belong to anyone.
+
+
+    The listening is intimate and solitary, but the ghost caught in the
+    magnetic particles of the tape is collective. It takes shape in every body
+    that stops, puts on the headphones and listens. *Kasete* offers the echo of
+    who we were, the shadow of everything that has not yet gone. The trace of
+    everything that wants to stay with us.
+
+
+    The Walkman stands still. It watches you walk by. And for a moment it
+    invites you to stop beside it. Are you ready to put on the headphones and
+    listen to the ghosts around you?
   datuak:
     - etiketa: Format
       balioa: Walkman and audio
