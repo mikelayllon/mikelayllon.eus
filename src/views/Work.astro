@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { type Lang, t, url } from '../i18n';
+import { type Lang, t, url, href } from '../i18n';
 import { getWorks, md, pick } from '../lib/content';
 
 interface Props { lang: Lang; id: string }
@@ -36,12 +36,12 @@ const textHtml = md(loc.testua);
       )}
     </div>
 
-    {d.irudia && <img class="work-cover" src={d.irudia} alt={d.irudi_alt || ''} />}
+    {d.irudia && <img class="work-cover" src={href(d.irudia)} alt={d.irudi_alt || ''} />}
 
     {d.audioa && (
       <div class="audio-box">
         <span class="label">{s.listen}</span>
-        <audio controls preload="none" src={d.audioa}></audio>
+        <audio controls preload="none" src={href(d.audioa)}></audio>
       </div>
     )}
 
@@ -56,7 +56,7 @@ const textHtml = md(loc.testua);
       <div class="gallery">
         {d.argazkiak.filter((g: any) => g.irudia).map((g: any) => (
           <figure>
-            <img src={g.irudia} alt={g.oina || ''} loading="lazy" decoding="async" />
+            <img src={href(g.irudia)} alt={g.oina || ''} loading="lazy" decoding="async" />
             {g.oina && <figcaption>{g.oina}</figcaption>}
           </figure>
         ))}

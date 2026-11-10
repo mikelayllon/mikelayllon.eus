@@ -1,5 +1,5 @@
 ---
-import { type Lang, url } from '../i18n';
+import { type Lang, url, href } from '../i18n';
 
 interface Props {
   lang: Lang;
@@ -11,7 +11,7 @@ const loc = { ...d.eu, ...Object.fromEntries(Object.entries(d[lang] ?? {}).filte
 ---
 <a class="work-card" href={url(lang, `/lanak/${work.id}`)}>
   {d.irudia
-    ? <img class="img" src={d.irudia} alt={d.irudi_alt || ''} loading="lazy" decoding="async" />
+    ? <img class="img" src={href(d.irudia)} alt={d.irudi_alt || ''} loading="lazy" decoding="async" />
     : <div class="ph" aria-hidden="true">{d.izenburua}</div>}
   {loc.mota && <p class="label">{loc.mota}</p>}
   <h3>{d.izenburua}</h3>

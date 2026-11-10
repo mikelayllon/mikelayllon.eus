@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { LANGS, type Lang, url } from '../i18n';
+import { LANGS, type Lang, url, href } from '../i18n';
 
 interface Props {
   lang: Lang;
@@ -21,9 +21,10 @@ interface Props {
 const { lang, title, description, path, alternates = {}, current, image } = Astro.props;
 const siteName = 'Mikel Ayllon';
 const fullTitle = title ? `${title} · ${siteName}` : siteName;
-const links = Object.fromEntries(LANGS.map((l) => [l, alternates[l] ?? url(l, path)])) as Record<Lang, string>;
+const links = Object.fromEntries(LANGS.map((l) => [l, alternates[l] ? href(alternates[l]) : url(l, path)])) as Record<Lang, string>;
 const canonical = new URL(links[lang], Astro.site);
-const ogImage = new URL(image || '/irudiak/mikel-ayllon.jpg', Astro.site);
+const ogImage = new URL(href(image || '/irudiak/mikel-ayllon.jpg'), Astro.site);
+const noindex = import.meta.env.PUBLIC_NOINDEX === 'true';
 const hasSlot = Astro.slots.has('hero');
 ---
 <!doctype html>
@@ -37,8 +38,9 @@ const hasSlot = Astro.slots.has('hero');
     {LANGS.filter((l) => !alternates[l] || l === lang).map((l) => (
       <link rel="alternate" hreflang={l} href={new URL(links[l], Astro.site)} />
     ))}
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="alternate" type="application/rss+xml" title="Koadernoa · Mikel Ayllon" href="/rss.xml" />
+    <link rel="icon" href={href('/favicon.svg')} type="image/svg+xml" />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="alternate" type="application/rss+xml" title="Koadernoa · Mikel Ayllon" href={href('/rss.xml')} />
     <meta property="og:title" content={fullTitle} />
     {description && <meta property="og:description" content={description} />}
     <meta property="og:type" content="website" />

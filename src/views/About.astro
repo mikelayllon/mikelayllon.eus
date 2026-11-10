@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import SectionHead from '../components/SectionHead.astro';
-import { type Lang, t } from '../i18n';
+import { type Lang, t, href } from '../i18n';
 import { getPage, pick, md } from '../lib/content';
 
 interface Props { lang: Lang }
@@ -23,7 +23,7 @@ const photo = data.argazkia || hero.argazkia;
       </div>
       {photo && (
         <div class="about__photo">
-          <img src={photo} alt={s.portrait} />
+          <img src={href(photo)} alt={s.portrait} />
           {hero.argazkiaren_egilea && <p class="hero__credit">{s.photo}: {hero.argazkiaren_egilea}</p>}
         </div>
       )}

@@ -27,7 +27,7 @@ const year = new Date().getFullYear();
       <div class="site-footer__links">
         <nav aria-label={s.sections}>
           <p class="label">{s.sections}</p>
-          <a href="/koadernoa">{s.koadernoa}</a>
+          <a href={url('eu', '/koadernoa')}>{s.koadernoa}</a>
           <a href={url(lang, '/zerbitzuak')}>{s.zerbitzuak}</a>
           <a href={url(lang, '/lanak')}>{s.lanak}</a>
           <a href={url(lang, '/ikerketa')}>{s.ikerketa}</a>
@@ -41,7 +41,7 @@ const year = new Date().getFullYear();
         )}
         <div>
           <p class="label">{t('eu').koadernoa}</p>
-          <a href="/rss.xml">{s.subscribe}</a>
+          <a href={url('eu', '/rss.xml')}>{s.subscribe}</a>
         </div>
       </div>
     </div>

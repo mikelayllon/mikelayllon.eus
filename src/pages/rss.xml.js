@@ -1,5 +1,6 @@
 import rss from '@astrojs/rss';
 import { getPosts, excerpt } from '../lib/content';
+import { url } from '../i18n';
 
 export async function GET(context) {
   const posts = await getPosts();
@@ -11,7 +12,7 @@ export async function GET(context) {
       title: p.data.izenburua,
       pubDate: p.data.data,
       description: p.data.sarrera || excerpt(p.body, 300),
-      link: `/koadernoa/${p.id}/`,
+      link: url('eu', `/koadernoa/${p.id}/`),
       categories: p.data.etiketak,
     })),
     customData: '<language>eu</language>',

@@ -1,6 +1,6 @@
 # mikelayllon.eus
 
-Mikel Ayllonen webgune pertsonala. [Astro](https://astro.build)-rekin egina, [Netlify](https://netlify.com)-n argitaratua eta [Pages CMS](https://pagescms.org) panelarekin editatua.
+Mikel Ayllonen webgune pertsonala. [Astro](https://astro.build)-rekin egina, [GitHub Pages](https://pages.github.com)-en argitaratua eta [Pages CMS](https://pagescms.org) panelarekin editatua.
 
 ## Edukiak
 

@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import SectionHead from '../components/SectionHead.astro';
 import WorkCard from '../components/WorkCard.astro';
 import RefList from '../components/RefList.astro';
-import { type Lang, t, url, formatDate } from '../i18n';
+import { type Lang, t, url, href, formatDate } from '../i18n';
 import { getPage, pick, getWorks, getPosts, excerpt, md } from '../lib/content';
 
 interface Props { lang: Lang }
@@ -33,18 +33,18 @@ const posts = (await getPosts()).slice(0, 3);
       </div>
     </div>
     <div class="hero__photo">
-      <img src={heroData.argazkia} alt={s.portrait} width="944" height="976" fetchpriority="high" />
+      <img src={href(heroData.argazkia)} alt={s.portrait} width="944" height="976" fetchpriority="high" />
       {heroData.argazkiaren_egilea && <p class="hero__credit">{s.photo}: {heroData.argazkiaren_egilea}</p>}
     </div>
   </section>
 
   <section id="koadernoa" class="wrap section section--first">
-    <SectionHead title={t('eu').koadernoa} linkLabel={posts.length ? s.allPosts : undefined} linkHref="/koadernoa" />
+    <SectionHead title={t('eu').koadernoa} linkLabel={posts.length ? s.allPosts : undefined} linkHref={url('eu', '/koadernoa')} />
     {posts.length > 0 ? (
       <div class="cols cols--3 cols--rule-b">
         <div class="cols__grid">
           {posts.map((p) => (
-            <a class="post-card" href={`/koadernoa/${p.id}`} lang="eu">
+            <a class="post-card" href={url('eu', `/koadernoa/${p.id}`)} lang="eu">
               <div class="post-card__meta">
                 <span class="label muted">{formatDate(p.data.data)}</span>
                 {p.data.etiketak[0] && <span class="label accent">{p.data.etiketak[0]}</span>}

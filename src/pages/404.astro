@@ -1,12 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
-import { t } from '../i18n';
+import { t, url } from '../i18n';
 const s = t('eu');
 ---
 <Base lang="eu" path="/" title="404">
   <section class="wrap page-head" style="min-height: 40vh">
     <p class="page-title">404</p>
     <p class="page-intro">{s.notFound} · <span lang="en">{t('en').notFound}</span></p>
-    <p><a class="link-more" href="/">{s.backHome} →</a></p>
+    <p><a class="link-more" href={url('eu', '/')}>{s.backHome} →</a></p>
   </section>
 </Base>

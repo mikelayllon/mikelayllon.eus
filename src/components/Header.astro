@@ -9,7 +9,7 @@ interface Props {
 const { lang, links, current } = Astro.props;
 const s = t(lang);
 const items = [
-  { id: 'koadernoa', label: s.koadernoa, href: '/koadernoa' },
+  { id: 'koadernoa', label: s.koadernoa, href: url('eu', '/koadernoa') },
   { id: 'zerbitzuak', label: s.zerbitzuak, href: url(lang, '/zerbitzuak') },
   { id: 'lanak', label: s.lanak, href: url(lang, '/lanak') },
   { id: 'ikerketa', label: s.ikerketa, href: url(lang, '/ikerketa') },

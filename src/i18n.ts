@@ -7,10 +7,18 @@ export function base(lang: Lang): string {
   return lang === DEFAULT_LANG ? '' : `/${lang}`;
 }
 
+/** Site base path ('' on the final domain, '/mikelayllon.eus' on the GitHub preview). */
+export const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+/** Prefix a root-relative path ('/irudiak/x.jpg') with the site base. External URLs pass through. */
+export function href(path: string | undefined | null): string {
+  if (!path) return '';
+  return path.startsWith('/') && !path.startsWith('//') ? `${BASE}${path}` : path;
+}
+
 /** Build a localized URL. `path` starts with '/' (e.g. '/lanak'). */
 export function url(lang: Lang, path = '/'): string {
-  const p = path === '/' ? '/' : path;
-  return `${base(lang)}${p}` || '/';
+  return href(`${base(lang)}${path}`);
 }
 
 export const ui = {
