@@ -145,10 +145,8 @@ a:hover { color: var(--accent); }
 /* Column grids with vertical rules (equal widths) */
 .cols { overflow: hidden; }
 .cols__grid { display: grid; margin: 0 -1px 0 -33px; }
-.cols__grid > * { border-left: 1px solid var(--ink); padding: 40px 32px 48px; }
+.cols__grid > * { padding: 40px 32px 48px; }
 .cols--3 .cols__grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-.cols--rule-b { border-bottom: 1px solid var(--ink); }
-.cols--rule-t { border-top: 1px solid var(--ink); }
 
 /* ---------- Post cards ---------- */
 .post-card { display: flex; flex-direction: column; gap: 16px; text-decoration: none; }
