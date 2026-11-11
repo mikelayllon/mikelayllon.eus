@@ -1,83 +1,91 @@
-# Zerbitzuak (servicios)
-# Azalpenean, *izartxo artean* idatzitakoa etzanez agertzen da.
 eu:
-  izenburua: "Idazketa, soinu-narratiba eta aholkularitza,"
-  izenburua_etzana: "zure neurrira"
-  azalpena: |-
-    Zerbait kontatu nahi duzu eta ez dakizu nola? Zure istorioak modu desberdin eta berezi batean kontatzen ikasi nahi duzu? Errealitatea beste modu batera entzun eta kontatu nahi duzu?
+  izenburua: Idazketa, soinu-narratiba eta aholkularitza,
+  izenburua_etzana: zure neurrira
+  azalpena: >-
+    Zerbait kontatu nahi duzu eta ez dakizu nola? Zure istorioak modu desberdin
+    eta berezi batean sortzen ikasi nahi duzu? Errealitatea beste modu batera
+    entzun nahi duzu?
 
-    Proiektu bat baduzu eta laguntza profesionala behar baduzu, idatzi, *kontatu zure ideia eta forma emango diogu elkarrekin*.
+
+    Proiektu bat baduzu eta laguntza profesionala behar baduzu, idatzi, *kontatu
+    zure ideia eta forma emango diogu elkarrekin*.
   blokeak:
-    - izena: "Kontatu"
+    - izena: Kontatu
       zerbitzuak:
-        - izena: "Gidoigintza"
-          azalpena: "Ikus-entzunezkoetarako, antzerkirako eta soinu-piezetarako gidoiak."
-        - izena: "Diseinu narratiboa"
-          azalpena: "Proiektu, espazio eta esperientzietarako kontakizunaren egitura."
-        - izena: "Unibertso transmedia"
-          azalpena: "Euskarri eta plataforma desberdinetara hedatzen diren istorioak diseinatzeko laguntza."
-        - izena: "Egokitzapena eta itzulpena"
-          azalpena: "Testu eszenikoak eta ikus-entzunezko gidoiak euskaratzeko zerbitzua."
-    - izena: "Entzun"
+        - izena: Gidoigintza
+          azalpena: Ikus-entzunezkoetarako, antzerkirako eta soinu-piezetarako gidoiak.
+        - izena: Diseinu narratiboa
+          azalpena: Proiektu, espazio eta esperientzietarako kontakizunaren egitura.
+        - izena: Unibertso transmedia
+          azalpena: Euskarri eta plataforma desberdinetara hedatzen diren istorioak
+            diseinatzeko laguntza.
+        - izena: Egokitzapena eta itzulpena
+          azalpena: Testu eszenikoak eta ikus-entzunezko gidoiak euskaratzeko zerbitzua.
+    - izena: Entzun
       zerbitzuak:
-        - izena: "Podcastak"
-          azalpena: "Formatua, gidoia eta soinu-kontakizuna."
-        - izena: "Soinu-piezak eta paisaiak"
-          azalpena: "Landa-grabazioetatik abiatutako sorkuntza."
-        - izena: "Erakusketetarako dramaturgia"
-          azalpena: "Audiogida hedatuak eta soinu-esperientziak museoetarako."
-        - izena: "Neurrirako soinu-esperientziak"
-          azalpena: "Kalean zein espazio berezietan instalatzeko soinu-esperientziak."
-        - izena: "Soinu-ikerketak"
-          azalpena: "Tokiko komunitateekin batera, auzoa/herria soinuaren bidez ikertzeko."
-    - izena: "Ikasi"
+        - izena: Podcastak
+          azalpena: Formatua, gidoia eta soinu-kontakizuna.
+        - izena: Soinu-piezak eta paisaiak
+          azalpena: Landa-grabazioetatik abiatutako sorkuntza.
+        - izena: Erakusketetarako dramaturgia
+          azalpena: Audiogida hedatuak eta soinu-esperientziak museoetarako.
+        - izena: Neurrirako soinu-esperientziak
+          azalpena: Kalean zein espazio berezietan instalatzeko soinu-esperientziak.
+        - izena: Soinu-ikerketak
+          azalpena: Tokiko komunitateekin batera, auzoa/herria soinuaren bidez ikertzeko.
+    - izena: Ikasi
       zerbitzuak:
-        - izena: "Tailerrak eta prestakuntza"
-          azalpena: "Idazketa, dramaturgia eta soinu-narratiba."
-        - izena: "Laguntza dramaturgikoa"
-          azalpena: "Sorkuntza-prozesuen jarraipena eta kanpo-begirada."
-        - izena: "Deialdietarako aholkularitza"
-          azalpena: "Proiektuak laguntza eta deialdietara aurkezteko."
-        - izena: "Erakundeentzako laguntza"
-          azalpena: "Arte-arloko bitartekaritza-planak eta kultur aholkularitza."
-
+        - izena: Tailerrak eta prestakuntza
+          azalpena: Idazketa, dramaturgia eta soinu-narratiba.
+        - izena: Laguntza dramaturgikoa
+          azalpena: Sorkuntza-prozesuen jarraipena eta kanpo-begirada.
+        - izena: Deialdietarako aholkularitza
+          azalpena: Proiektuak laguntza eta deialdietara aurkezteko.
+        - izena: Erakundeentzako laguntza
+          azalpena: Arte-arloko bitartekaritza-planak eta kultur aholkularitza.
 en:
-  izenburua: "Writing, sound storytelling and consulting,"
-  izenburua_etzana: "made to measure"
-  azalpena: |-
-    Want to tell something but don't know how? Want to learn to tell your stories in a different, unique way? Want to listen to reality, and tell it, in another way?
+  izenburua: Writing, sound storytelling and consulting,
+  izenburua_etzana: made to measure
+  azalpena: >-
+    Want to tell something but don't know how? Want to learn to tell your
+    stories in a different, unique way? Want to listen to reality, and tell it,
+    in another way?
 
-    If you have a project and need professional support, get in touch: *tell me your idea and we'll give it shape together*.
+
+    If you have a project and need professional support, get in touch: *tell me
+    your idea and we'll give it shape together*.
   blokeak:
-    - izena: "Tell"
+    - izena: Tell
       zerbitzuak:
-        - izena: "Scriptwriting"
-          azalpena: "Scripts for screen, stage and sound pieces."
-        - izena: "Narrative design"
-          azalpena: "Story structure for projects, spaces and experiences."
-        - izena: "Transmedia worlds"
-          azalpena: "Support in designing stories that unfold across different media and platforms."
-        - izena: "Adaptation and translation"
-          azalpena: "Translation of stage texts and screenplays into Basque."
-    - izena: "Listen"
+        - izena: Scriptwriting
+          azalpena: Scripts for screen, stage and sound pieces.
+        - izena: Narrative design
+          azalpena: Story structure for projects, spaces and experiences.
+        - izena: Transmedia worlds
+          azalpena: Support in designing stories that unfold across different media and
+            platforms.
+        - izena: Adaptation and translation
+          azalpena: Translation of stage texts and screenplays into Basque.
+    - izena: Listen
       zerbitzuak:
-        - izena: "Podcasts"
-          azalpena: "Format, script and sound storytelling."
-        - izena: "Sound pieces and soundscapes"
-          azalpena: "Work built from field recordings."
-        - izena: "Dramaturgy for exhibitions"
-          azalpena: "Extended audio guides and sound experiences for museums."
-        - izena: "Bespoke sound experiences"
-          azalpena: "Sound experiences to install in the street or in unusual spaces."
-        - izena: "Sound research"
-          azalpena: "Exploring a neighbourhood or town through sound, together with local communities."
-    - izena: "Learn"
+        - izena: Podcasts
+          azalpena: Format, script and sound storytelling.
+        - izena: Sound pieces and soundscapes
+          azalpena: Work built from field recordings.
+        - izena: Dramaturgy for exhibitions
+          azalpena: Extended audio guides and sound experiences for museums.
+        - izena: Bespoke sound experiences
+          azalpena: Sound experiences to install in the street or in unusual spaces.
+        - izena: Sound research
+          azalpena: Exploring a neighbourhood or town through sound, together with local
+            communities.
+    - izena: Learn
       zerbitzuak:
-        - izena: "Workshops and training"
-          azalpena: "Writing, dramaturgy and sound storytelling."
-        - izena: "Dramaturgical support"
-          azalpena: "Accompanying creative processes with an outside eye."
-        - izena: "Funding applications"
-          azalpena: "Preparing projects for grants and open calls."
-        - izena: "Support for organisations"
-          azalpena: "Arts mediation plans and cultural consulting."
+        - izena: Workshops and training
+          azalpena: Writing, dramaturgy and sound storytelling.
+        - izena: Dramaturgical support
+          azalpena: Accompanying creative processes with an outside eye.
+        - izena: Funding applications
+          azalpena: Preparing projects for grants and open calls.
+        - izena: Support for organisations
+          azalpena: Arts mediation plans and cultural consulting.
